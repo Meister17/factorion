@@ -20,9 +20,9 @@ function findFactorions() {
   }
 
   /**
-    * Finds the upper bound of factorions. Uses the following idea: if the
-    * number has d digits, then maximum sum of factorials of its digits equals
-    * to d * 9! So the number can not be greater than d * 9!
+    * Finds the power of 10 that is the upper bound of factorions. Uses the
+    * following idea: if the number has d digits, then maximum sum of factorials
+    * of its digits equals to d * 9! So the number can not be greater than d * 9!
     * @return the upper bound of factorions
     */
   function CalculateUpperBound(factorials) {
@@ -33,7 +33,7 @@ function findFactorions() {
       }
       ++number;
     }
-    return Math.pow(10, number);
+    return number;
   }
 
   /**
@@ -89,6 +89,7 @@ function findFactorions() {
   var factorials = calculateDigitFactorials();
   var upper_bound = CalculateUpperBound(factorials);
   var digits = InitializeDigits(NO_DIGIT, upper_bound);
+  upper_bound = Math.pow(10, upper_bound);
   var sum = factorials[0];
   for (var number = 0; number < upper_bound; ++number) {
     if (sum == number) {
